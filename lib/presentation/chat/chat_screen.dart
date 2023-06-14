@@ -10,11 +10,34 @@ class ChatScreen extends StatelessWidget {
         leading: const Padding(
           padding: EdgeInsets.all(4.0),
           child: CircleAvatar(
-            backgroundImage: NetworkImage('https://image.enjoymovie.net/xny3fs-K8LsWKNDVL5EfsqQONeg=/256x256/smart/core/p/0GW0zQr3pj.jpg'),
+            backgroundImage: NetworkImage(
+                'https://image.enjoymovie.net/xny3fs-K8LsWKNDVL5EfsqQONeg=/256x256/smart/core/p/0GW0zQr3pj.jpg'),
           ),
         ),
         title: const Text('Mi usuario'),
         centerTitle: false,
+      ),
+      body: _ChatView(),
+    );
+  }
+}
+
+class _ChatView extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Column(
+          children: [
+            Expanded(child: ListView.builder(
+              itemCount: 100,
+              itemBuilder: (context, index) {
+              return Text('Indice: $index');
+            })),
+            Text('Mundo')
+          ],
+        ),
       ),
     );
   }
